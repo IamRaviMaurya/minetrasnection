@@ -865,15 +865,25 @@
     return `${yyyy}/${mm}/${dd} ${hh}:${min}:${sec}`;
   }
 
-  function updateTransactions() {
-    const dateInput = document.getElementById("dateInput").value;
-    if (!dateInput) {
-      alert("Please select a date.");
-      return;
-    }
-    currentTimeIndex = 0;
-    renderTransactions(dateInput);
+function updateTransactions() {
+  const dateInput = document.getElementById("dateInput").value;
+  if (!dateInput) {
+    alert("Please select a date.");
+    return;
   }
+
+  // Reset time index
+  currentTimeIndex = 0;
+
+  // Add to wallet: 920 * 10 + random decimal
+  const walletChange = winIncrement * numberOfWins;
+  const randomDecimal = Math.floor(Math.random() * 100) / 100;
+  currentWallet += walletChange + randomDecimal;
+  currentWallet = parseFloat(currentWallet.toFixed(2));
+  renderWallet(currentWallet);
+
+  renderTransactions(dateInput);
+}
 
  function shiftTransactions(direction) {
   const dateInput = document.getElementById("dateInput").value;
