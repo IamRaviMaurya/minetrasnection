@@ -848,7 +848,7 @@
   function renderWallet(amount) {
     const walletDisplay = document.getElementById("walletDisplay");
     if (walletDisplay) {
-      walletDisplay.textContent = amount.toLocaleString("en-IN", {
+      walletDisplay.textContent = amount.toLocaleString("en-US", {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
       });
